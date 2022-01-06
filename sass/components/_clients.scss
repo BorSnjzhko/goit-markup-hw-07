@@ -18,12 +18,15 @@
     margin-right: 30px;
   }
 
-  &:hover,
-  &:focus {
-    border-color: $accent-color;
-    --color6:$accent-color;
-  }
+  
+
+.clients-item .clients-link:hover,
+.clients-item .clients-link:focus {
+  color: var(--accent-color);
+  --color6: var(--accent-color);
+  border-color: var(--accent-color);
 }
+
 
 .clients__link {
   @include flexbox(center, center);
@@ -44,4 +47,18 @@
   .clients__link:focus & {
     fill: $accent-color;
   }
+}
+&:hover,
+&:focus {
+  border-color: $accent-color;
+  --color6:$accent-color;
+}
+}
+
+ .clients__link:hover,
+.clients__link:focus {
+color: $accent-color;
+--color6: $accent-color;
+border-color: $accent-color;
+transition: $transition-duration $timing-function;
 }
