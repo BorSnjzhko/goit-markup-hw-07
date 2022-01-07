@@ -72,8 +72,6 @@ img {
 
 .btn:hover:enabled, .btn:focus:enabled {
   transform: scale(0.93);
-  color: #2196f3;
-  background-color: #ffffff;
 }
 
 .btn:disabled {
@@ -405,14 +403,12 @@ img {
   margin-right: 30px;
 }
 
-.clients__item .clients-item .clients-link:hover,
-.clients__item .clients-item .clients-link:focus {
-  color: var(--accent-color);
-  --color6: var(--accent-color);
-  border-color: var(--accent-color);
+.clients__item:hover, .clients__item:focus {
+  border-color: #2196f3;
+  --color6:$accent-color;
 }
 
-.clients__item .clients__link {
+.clients__link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -420,27 +416,20 @@ img {
   height: 90px;
 }
 
-.clients__item .clients__icon {
+.clients__icon {
   fill: #afb1b8;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.clients__link:hover .clients__item .clients__icon,
-.clients__link:focus .clients__item .clients__icon {
+.clients__link:hover .clients__icon,
+.clients__link:focus .clients__icon {
   fill: #2196f3;
-}
-
-.clients__item:hover, .clients__item:focus {
-  border-color: #2196f3;
-  --color6:$accent-color;
 }
 
 .clients__link:hover,
 .clients__link:focus {
-  color: #2196f3;
-  --color6: $accent-color;
   border-color: #2196f3;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer {

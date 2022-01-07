@@ -24,8 +24,6 @@
   &:hover:enabled,
   &:focus:enabled {
     transform: scale(0.93);
-    color: $accent-color;
-  background-color:$primary-bg-color;
   }
 
   &:disabled {
