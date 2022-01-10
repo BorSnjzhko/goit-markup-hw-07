@@ -472,6 +472,10 @@ img {
   margin-bottom: 9px;
 }
 
+.list__row {
+  margin-bottom: 9px;
+}
+
 .adress__link {
   margin-bottom: 9px;
   color: rgba(255, 255, 255, 0.6);
