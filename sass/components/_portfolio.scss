@@ -1,22 +1,56 @@
-// Страница портфолио
-
-.portfolio-section {
-  padding: 94px 0;
-}
-
-// Кнопки-фильтры для портфолио
+// Список для кнопок-фильтров
 
 .filters {
   @extend %list;
+
   display: flex;
-  justify-content: center;
 
-  margin-bottom: 50px;
+  @media screen and (max-width: 767px) {
+    flex-wrap: wrap;
+
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    justify-content: center;
+
+    margin-bottom: 50px;
+  }
 }
 
-.filters__item:not(:last-child) {
-  margin-right: 8px;
+// Элемент списка кнопок-фильтров
+
+.filters__item {
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+    &:not(:nth-last-child(-n + 2)) {
+      margin-bottom: 15px;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
 }
+
+// Кнопки в списке
 
 .filters__btn {
   display: inline-block;
@@ -51,41 +85,70 @@
   }
 }
 
-// Сетка портфолио
+// Список для сетки портфолио
 
-.portfolio {
+.portfolio__list {
   @extend %list;
-  display: flex;
-  flex-wrap: wrap;
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
+// Элемент списка портфолио
+
 .portfolio__item {
-  width: calc((100% - 60px) / 3);
-  margin-right: 30px;
-  margin-bottom: 30px;
+  height: 100%;
 
   transition: box-shadow $transition-duration $timing-function;
 
-  &:nth-child(3n) {
-    margin-right: 0px;
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
   }
 
-  &:nth-last-child(-n + 3) {
-    margin-bottom: 0px;
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    width: calc((100% - 1 * 30px) / 2);
+
+    &:nth-last-child(n + 2) {
+      margin-bottom: 30px;
+    }
+    &:not(:nth-child(2n)) {
+      margin-right: 30px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: calc((100% - 2 * 30px) / 3);
+
+    &:nth-last-child(n + 4) {
+      margin-bottom: 30px;
+    }
+    &:not(:nth-child(3n)) {
+      margin-right: 30px;
+    }
   }
 
   &:hover,
   &:focus {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-      1px 4px 6px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
   }
 }
+
+// Ссылка для элемента списка портфолио
 
 .portfolio__link {
   text-decoration: none;
 }
 
-// Оверлей портфолио
+// Обертка для картинки и текста портфолио (под оверлей)
 
 .portfolio__thumb {
   position: relative;
@@ -93,16 +156,22 @@
   overflow: hidden;
 }
 
+// Оверлей портфолио (поверх фото)
+
 .portfolio__tooltip {
   position: absolute;
   bottom: 0;
   left: 0;
   transform: translate(0, 100%);
 
-  width: 370px;
-  height: 294px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
   margin: 0;
-  padding: 63px 24px;
+  padding: 24px 24px 0;
 
   background-color: rgba(33, 150, 243, 0.9);
 
@@ -121,9 +190,21 @@
 
     opacity: 1;
   }
+
+  @media screen and (max-width: 767px) {
+    overflow-y: auto;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    padding: 49px 24px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 63px 24px;
+  }
 }
 
-// Текст карточки портфолио
+// Текст на оверлее (поверх фото)
 
 .portfolio__content {
   padding: 20px 24px;
@@ -132,17 +213,23 @@
   border-bottom: 1px solid #eeeeee;
 }
 
+// Тайтла для элемента списка портфолио
+
 .portfolio__title {
   margin-top: 0;
   margin-bottom: 4px;
 
   color: $second-text-color;
 
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 2;
+  @include font(700, 18px, 2);
   letter-spacing: 0.06em;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+// Текст для элемента списка (под тайтлом)
 
 .portfolio__text {
   margin: 0;

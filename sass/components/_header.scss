@@ -2,18 +2,29 @@
 
 .header {
   border-bottom: 1px solid #ececec;
+
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    background-color: $primary-bg-color;
+
+    z-index: 1;
+  }
 }
 
 // Обёртка для всей навигации
 
 .main-nav {
-  display: flex;
-  align-items: center;
-}
+  @media screen and (max-width: 767px) {
 
-// Обёртка для логотипа и меню
+    @include flexbox(space-between, center);
 
-.navbar {
-  display: flex;
-  align-items: center;
+    height: 60px;
+  }
+
+  @media screen and (min-width: 768px) {
+    @include flexbox(space-between, center);
+  }
 }

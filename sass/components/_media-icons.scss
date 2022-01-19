@@ -2,9 +2,6 @@
 
 .media-link {
   @include flexbox(center, center);
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
 
   width: 44px;
   height: 44px;
@@ -14,7 +11,6 @@
   
   &:hover,
   &:focus {
-    --color6: #ffffff;
     background-color: $accent-color;
   }	
 }
