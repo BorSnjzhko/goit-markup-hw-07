@@ -1,10 +1,16 @@
-// Соц сети в футере
+// Блок соц сетей в футере
 
 .networks {
-  margin-right: 93px;
+  @media screen and (max-width: 1199px) {
+    margin-bottom: 60px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-right: 93px;
+  }
 }
 
-// заглавие блока
+// Тайтл блока
 
 .networks__title {
   display: inline-block;
@@ -15,40 +21,35 @@
   text-transform: uppercase;
 }
 
-
-.networks__icon {
-
-  --color6: #ffffff;
-} 
-
 // Список социальных сетей
 
 .networks__list {
   @extend %list;
+
   display: flex;
+
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+  }
 }
+
+// Элемент списка
 
 .networks__item:not(:last-child) {
   margin-right: 10px;
 }
 
-
-
-// Ссылки на социальные сети сайта
+// Ссылка элемента
 
 .networks__link {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-// Иконки социальных сетей
-
-.networks-icon {
-  --color6: #ffffff;
-
-  transition: fill $transition-duration $timing-function;	
-}
+// Иконки соцальных сетей
 
 .networks__icon {
+  --color6: #ffffff;
+
   .networks__link:hover &,
   .networks__link:focus & {
     fill: $additional-background-color;
